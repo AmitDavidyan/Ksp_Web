@@ -1,0 +1,46 @@
+.background
+{
+  background-color: antiquewhite;
+}
+.Welcome
+{
+    margin-left: 11ch;
+    color:#B8860B;
+    font-size: 2.1em;
+}
+.menu_products 
+{
+    margin-left: 1ch;
+    color:black;
+}
+.li_products
+{
+    margin-left: 1ch;
+    color:coral
+}
+.pic_shop
+{
+    margin-left: 1ch;
+    display: block;
+}
+.button_shop
+{
+    color: #B8860B;
+    background-color:white ;
+    border-color: #B8860B;
+    display: block;
+    margin-left: 40ch;
+    font-size: 1.5em;
+    width: 15ch;
+}
+
+h2 {
+    display: block;
+    font-size: 2em;
+    text-decoration: underline;
+}
+h4 {
+    display: block;
+    font-size: 1.2em;
+    text-decoration: underline;
+}

@@ -10,10 +10,9 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
-      .then((helloRes) => {
-        console.log(helloRes);
-        setMenuItem(helloRes);
-        setButtons(helloRes);
+      .then((data) => {
+        setMenuItem(data);
+        setFilters(data);
       });
   }, []);
 
@@ -43,18 +42,16 @@ function App() {
       );
     }
   };
-  const [category, setCategory] = useState("All");
-  //
   const [menuItem, setMenuItem] = useState([]);
-  const [buttons, setButtons] = useState([]);
+  const [filters, setFilters] = useState([]);
 
   const filter = (button) => {
     if (button === "All") {
-      setMenuItem(buttons);
+      setMenuItem(filters);
       return;
     }
 
-    const filteredData = buttons.filter((item) => item.category === button);
+    const filteredData = filters.filter((item) => item.category === button);
     setMenuItem(filteredData);
   };
 
@@ -69,8 +66,8 @@ function App() {
             <Products
               menuItem={menuItem}
               setMenuItem={setMenuItem}
-              button={buttons}
-              setButtons={setButtons}
+              filters={filters}
+              setFilters={setFilters}
               filter={filter}
               onAdd={onAdd}
             />

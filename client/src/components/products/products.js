@@ -5,25 +5,24 @@ import "./Button.css";
 
 function Products({
   menuItem,
-  button,
+  filters,
   filter,
   onAdd,
-  setButtons,
+  setFilters,
   setMenuItem,
 }) {
   useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
-      .then((helloRes) => {
-        console.log(helloRes);
-        setMenuItem(helloRes);
-        setButtons(helloRes);
+      .then((data) => {
+        setMenuItem(data);
+        setFilters(data);
       });
   }, []);
 
   const allCategories = [
     "All",
-    ...new Set(button.map((item) => item.category)),
+    ...new Set(filters.map((item) => item.category)),
   ];
   return (
     <div>

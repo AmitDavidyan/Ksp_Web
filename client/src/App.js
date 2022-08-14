@@ -1,15 +1,10 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-// import Main from "./components/main/Main";
 import Welcome from "./components/HomeP/Welcome";
-// import Products from "./components/products";
 import Header from "./components/Header/navbar";
 import Products from "./components/Products/products";
-// import Button from "./components/products/Button";nn
-// import items from "./components/products/data2.json";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Basket from "./components/Products/Basket";
-// const allCategories = ["All", ...new Set(items.map((item) => item.category))];
 
 function App() {
   useEffect(() => {
@@ -53,7 +48,6 @@ function App() {
   const [menuItem, setMenuItem] = useState([]);
   const [buttons, setButtons] = useState([]);
 
-  //Filter Function
   const filter = (button) => {
     if (button === "All") {
       setMenuItem(buttons);
@@ -78,12 +72,10 @@ function App() {
               button={buttons}
               setButtons={setButtons}
               filter={filter}
-              // products={products}
               onAdd={onAdd}
             />
           }
         />
-        {/* <Basket cartItems={cartItems} onAdd={onAdd} onRemove={onRemove}></Basket> */}
         <Route
           path="/Basket"
           element={

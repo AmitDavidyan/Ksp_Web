@@ -1,19 +1,19 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 // import Main from "./components/main/Main";
-import Welcome from "./components/homeP/Welcome";
+import Welcome from "./components/HomeP/Welcome";
 // import Products from "./components/products";
 import Header from "./components/Header/navbar";
-import Products from "./components/products/products";
-// import Button from "./components/products/Button";
+import Products from "./components/Products/products";
+// import Button from "./components/products/Button";nn
 // import items from "./components/products/data2.json";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Basket from "./components/products/Basket";
+import Basket from "./components/Products/Basket";
 // const allCategories = ["All", ...new Set(items.map((item) => item.category))];
 
 function App() {
   useEffect(() => {
-    fetch("/products")
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((helloRes) => {
         console.log(helloRes);
@@ -22,7 +22,6 @@ function App() {
       });
   }, []);
 
-  // const { products } = buttons;
   const [cartItems, setCartItems] = useState([]);
 
   const onAdd = (product) => {

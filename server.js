@@ -1,11 +1,13 @@
+const cors = require("cors");
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const product = require("./data2.json");
 
 const fs = require("fs"); //
 const app = express();
 const port = process.env.PORT || 5000;
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -14,11 +16,11 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.get("/products", (req, res) => {
-  fs.readFile("./data3.json", "utf8", (err, data) => {
-    if (err) console.log("error");
-    if (data) {
-      const products = JSON.parse(data);
-      res.send(products);
+  fs.readFile("./data2.json", "utf8", (err, data) => {
+    try {
+      res.send(JSON.parse(data));
+    } catch (error) {
+      console.log("Error parsing JSON:", error, data);
     }
   });
 });

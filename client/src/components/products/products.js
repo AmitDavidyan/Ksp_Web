@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import "./products.css";
 import "./Button.css";
 
-// import photos from "./data2.json";
-
 function Products({
   menuItem,
   button,
@@ -13,10 +11,8 @@ function Products({
   setButtons,
   setMenuItem,
 }) {
-  // const [products, setProducts] = useState([]);
-
   useEffect(() => {
-    fetch("/products")
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((helloRes) => {
         console.log(helloRes);

@@ -15,7 +15,7 @@ app.get("/api/hello", (req, res) => {
   res.send({ express: "Hello From Express" });
 });
 
-app.get("/products", (req, res) => {
+app.get("/api/products", (req, res) => {
   fs.readFile("./data2.json", "utf8", (err, data) => {
     try {
       res.send(JSON.parse(data));
